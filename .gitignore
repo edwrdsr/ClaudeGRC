@@ -1,0 +1,14 @@
+# Python / virtual env
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Project-specific
+evidence.db
+compliance_report.*
+.env
+
+# macOS junk
+.DS_Store
