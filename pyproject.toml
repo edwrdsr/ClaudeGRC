@@ -1,0 +1,17 @@
+[project]
+name = "claudegrc"
+version = "0.1.0"
+description = "Claude-Powered GRC Automation CLI"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.scripts]
+claudegrc = "claudegrc.main:app"
+
+[tool.setuptools.packages.find]
+include = ["claudegrc*"]
+exclude = ["mocks*", "frameworks*", "tests*"]
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,64 @@
+framework:
+  name: "NIST CSF"
+  version: "2.0"
+  publisher: "National Institute of Standards and Technology"
+
+functions:
+  - id: GV
+    name: "Govern"
+    categories:
+      - id: GV.RM
+        name: "Risk Management Strategy"
+        controls:
+          - id: GV.RM-01
+            text: "Risk management objectives are established and agreed upon by organizational stakeholders"
+            evidence_types: ["iam_policy"]
+            check: "Verify risk appetite and tolerance statements exist"
+
+  - id: ID
+    name: "Identify"
+    categories:
+      - id: ID.AM
+        name: "Asset Management"
+        controls:
+          - id: ID.AM-07
+            text: "Inventories of data and corresponding metadata are maintained"
+            evidence_types: ["bedrock_models"]
+            check: "Verify data classification tags exist on AI model configurations"
+      - id: ID.RA
+        name: "Risk Assessment"
+        controls:
+          - id: ID.RA-01
+            text: "Vulnerabilities in assets are identified, validated, and recorded"
+            evidence_types: ["iam_policy", "bedrock_models"]
+            check: "Verify overly permissive IAM policies for AI services are flagged"
+
+  - id: PR
+    name: "Protect"
+    categories:
+      - id: PR.AA
+        name: "Identity Management and Access Control"
+        controls:
+          - id: PR.AA-01
+            text: "Identities and credentials for authorized users, services, and hardware are managed"
+            evidence_types: ["iam_policy"]
+            check: "Verify AI service roles use least-privilege and MFA is enforced"
+          - id: PR.AA-05
+            text: "Access permissions are defined with least privilege and separation of duties"
+            evidence_types: ["iam_policy"]
+            check: "Verify no wildcard permissions on AI service policies in production"
+
+  - id: DE
+    name: "Detect"
+    categories:
+      - id: DE.CM
+        name: "Continuous Monitoring"
+        controls:
+          - id: DE.CM-01
+            text: "Networks and network services are monitored to find potentially adverse events"
+            evidence_types: ["audit_log"]
+            check: "Verify CloudTrail events for AI services are captured and forwarded to SIEM"
+          - id: DE.CM-09
+            text: "Computing hardware and software, runtime environments, and their data are monitored"
+            evidence_types: ["audit_log", "bedrock_models"]
+            check: "Verify model invocation logging is enabled for all production models"

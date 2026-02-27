@@ -1,0 +1,101 @@
+[
+  {
+    "event_id": "evt-a1b2c3d4-2026-0227-001",
+    "event_time": "2026-02-27T06:15:22Z",
+    "event_source": "bedrock.amazonaws.com",
+    "event_name": "InvokeModel",
+    "user_identity": {
+      "type": "AssumedRole",
+      "arn": "arn:aws:sts::012345678901:assumed-role/MLEngineerRole/alice",
+      "principal_id": "AROA3XFRBF23JKLMNOP:alice"
+    },
+    "source_ip": "10.0.14.55",
+    "request_parameters": {
+      "modelId": "anthropic.claude-3-5-sonnet-20241022-v2:0",
+      "contentType": "application/json",
+      "accept": "application/json"
+    },
+    "response_code": 200,
+    "read_only": false,
+    "region": "us-east-1"
+  },
+  {
+    "event_id": "evt-a1b2c3d4-2026-0227-002",
+    "event_time": "2026-02-27T06:18:45Z",
+    "event_source": "bedrock.amazonaws.com",
+    "event_name": "InvokeModel",
+    "user_identity": {
+      "type": "AssumedRole",
+      "arn": "arn:aws:sts::012345678901:assumed-role/DataScienceRole/bob",
+      "principal_id": "AROA3XFRBF23QRSTUVW:bob"
+    },
+    "source_ip": "10.0.14.102",
+    "request_parameters": {
+      "modelId": "anthropic.claude-3-haiku-20240307-v1:0",
+      "contentType": "application/json",
+      "accept": "application/json"
+    },
+    "response_code": 200,
+    "read_only": false,
+    "region": "us-east-1"
+  },
+  {
+    "event_id": "evt-a1b2c3d4-2026-0227-003",
+    "event_time": "2026-02-27T06:22:10Z",
+    "event_source": "bedrock.amazonaws.com",
+    "event_name": "CreateGuardrail",
+    "user_identity": {
+      "type": "AssumedRole",
+      "arn": "arn:aws:sts::012345678901:assumed-role/MLOpsRole/carol",
+      "principal_id": "AROA3XFRBF23XYZABCD:carol"
+    },
+    "source_ip": "10.0.15.30",
+    "request_parameters": {
+      "name": "pii-filter-v3",
+      "blockedInputMessaging": "Input blocked due to PII content.",
+      "blockedOutputsMessaging": "Output blocked due to PII content."
+    },
+    "response_code": 200,
+    "read_only": false,
+    "region": "us-east-1"
+  },
+  {
+    "event_id": "evt-a1b2c3d4-2026-0227-004",
+    "event_time": "2026-02-27T06:30:00Z",
+    "event_source": "sagemaker.amazonaws.com",
+    "event_name": "CreateEndpoint",
+    "user_identity": {
+      "type": "AssumedRole",
+      "arn": "arn:aws:sts::012345678901:assumed-role/MLOpsRole/carol",
+      "principal_id": "AROA3XFRBF23XYZABCD:carol"
+    },
+    "source_ip": "10.0.15.30",
+    "request_parameters": {
+      "EndpointName": "fraud-detection-v4",
+      "EndpointConfigName": "fraud-detection-v4-config"
+    },
+    "response_code": 200,
+    "read_only": false,
+    "region": "us-east-1"
+  },
+  {
+    "event_id": "evt-a1b2c3d4-2026-0227-005",
+    "event_time": "2026-02-27T07:01:15Z",
+    "event_source": "bedrock.amazonaws.com",
+    "event_name": "InvokeModel",
+    "user_identity": {
+      "type": "IAMUser",
+      "arn": "arn:aws:iam::012345678901:user/service-account-legacy",
+      "principal_id": "AIDAJQABLZS4A3QDU576Q"
+    },
+    "source_ip": "10.0.20.5",
+    "request_parameters": {
+      "modelId": "anthropic.claude-3-5-sonnet-20241022-v2:0",
+      "contentType": "application/json",
+      "accept": "application/json"
+    },
+    "response_code": 200,
+    "read_only": false,
+    "region": "us-east-1"
+  }
+]

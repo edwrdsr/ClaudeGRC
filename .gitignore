@@ -3,12 +3,12 @@
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
+*.egg-info/
 
 # Project-specific
 evidence.db
+claudegrc.duckdb*
 compliance_report.*
+output/
 .env
-
-# macOS junk
 .DS_Store

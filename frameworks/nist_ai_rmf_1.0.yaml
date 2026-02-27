@@ -1,0 +1,85 @@
+framework:
+  name: "NIST AI RMF"
+  version: "1.0"
+  publisher: "National Institute of Standards and Technology"
+
+functions:
+  - id: GOVERN
+    name: "Govern"
+    description: "Cross-cutting function for AI risk management culture and governance"
+    categories:
+      - id: GOVERN-1
+        name: "Policies and Procedures"
+        controls:
+          - id: GOVERN-1.1
+            text: "Legal and regulatory requirements involving AI are understood, managed, and documented"
+            evidence_types: ["iam_policy", "audit_log"]
+            check: "Verify documented AI governance policies exist and reference applicable regulations"
+          - id: GOVERN-1.2
+            text: "AI system inventory is maintained with risk tiering"
+            evidence_types: ["bedrock_models"]
+            check: "Verify all deployed AI models are inventoried with risk classifications"
+      - id: GOVERN-2
+        name: "Accountability"
+        controls:
+          - id: GOVERN-2.1
+            text: "Roles and responsibilities for AI risk management are defined and assigned"
+            evidence_types: ["iam_policy"]
+            check: "Verify IAM roles for AI services have documented owners and defined scopes"
+
+  - id: MAP
+    name: "Map"
+    description: "Context and risk identification for AI systems"
+    categories:
+      - id: MAP-1
+        name: "Context Establishment"
+        controls:
+          - id: MAP-1.1
+            text: "Intended purposes, potentially beneficial uses, context of use, and deployment setting are understood"
+            evidence_types: ["bedrock_models"]
+            check: "Verify each model has documented intended use cases and deployment context"
+      - id: MAP-3
+        name: "Benefits and Costs"
+        controls:
+          - id: MAP-3.1
+            text: "Potential benefits and costs are assessed for each AI system"
+            evidence_types: ["bedrock_models"]
+            check: "Verify cost tracking is enabled for AI model invocations"
+
+  - id: MEASURE
+    name: "Measure"
+    description: "Quantitative and qualitative analysis of AI risks"
+    categories:
+      - id: MEASURE-1
+        name: "Risk Metrics"
+        controls:
+          - id: MEASURE-1.1
+            text: "Approaches and metrics for measurement of AI risks are connected to deployment context"
+            evidence_types: ["bedrock_models", "audit_log"]
+            check: "Verify guardrails and logging are enabled for production AI models"
+      - id: MEASURE-2
+        name: "Evaluation"
+        controls:
+          - id: MEASURE-2.6
+            text: "AI system performance or assurance criteria are measured qualitatively or quantitatively"
+            evidence_types: ["audit_log", "bedrock_models"]
+            check: "Verify invocation logging captures model performance metrics"
+
+  - id: MANAGE
+    name: "Manage"
+    description: "Risk treatment and monitoring"
+    categories:
+      - id: MANAGE-1
+        name: "Risk Response"
+        controls:
+          - id: MANAGE-1.1
+            text: "AI risk treatment plans are developed and implemented"
+            evidence_types: ["iam_policy", "bedrock_models"]
+            check: "Verify guardrails are applied to production models handling sensitive data"
+      - id: MANAGE-4
+        name: "Monitoring"
+        controls:
+          - id: MANAGE-4.1
+            text: "Post-deployment AI system monitoring plans are implemented"
+            evidence_types: ["audit_log", "bedrock_models"]
+            check: "Verify CloudTrail logging is active for all AI service API calls"
